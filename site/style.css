@@ -41,6 +41,12 @@ h2 { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.15; margin: 0; }
 .section-copy p { margin-bottom: 22px; }
 .large-copy { color: var(--ink); font-size: 17px; line-height: 1.8; }
 .text-links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 26px; color: var(--accent); font-size: 13px; }
+.render-section { padding: 64px max(8vw, calc((100vw - 1050px) / 2)); display: grid; grid-template-columns: .7fr 1.3fr; align-items: center; gap: 7vw; border-top: 1px solid var(--line); }
+.render-copy h2 { margin-bottom: 14px; }
+.render-copy > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.65; }
+.render-figure { margin: 0; text-align: center; }
+.render-figure img { display: block; max-width: 100%; max-height: 580px; width: auto; height: auto; margin: 0 auto; }
+.render-figure figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; }
 .feature-section { background: var(--soft-blue); grid-template-columns: .75fr 1.25fr; }
 .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .feature-card { min-height: 170px; padding: 22px; background: var(--white); border: 1px solid var(--line); }
@@ -54,6 +60,17 @@ h2 { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.15; margin: 0; }
 .diagram-figure { margin: 0; background: var(--white); border: 1px solid var(--line); }
 .diagram-figure img { display: block; width: 100%; height: auto; }
 .diagram-figure figcaption { padding: 10px 13px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.planning-section { padding: 64px max(8vw, calc((100vw - 1050px) / 2)); border-top: 1px solid var(--line); }
+.planning-section h2 { margin-bottom: 22px; }
+.parts-section { background: var(--white); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--white); }
+.planning-table { width: 100%; min-width: 820px; border-collapse: collapse; font-size: 13px; line-height: 1.55; }
+.planning-table th, .planning-table td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.planning-table thead th { background: var(--soft-blue); color: var(--ink); font-weight: 650; }
+.planning-table tbody th { width: 110px; white-space: nowrap; font-weight: 650; }
+.planning-table tbody tr:last-child th, .planning-table tbody tr:last-child td { border-bottom: 0; }
+.planning-table td { color: var(--muted); }
+.planning-table td:last-child { min-width: 220px; }
 .status-band { display: grid; grid-template-columns: 150px 1fr auto; gap: 25px; align-items: center; padding: 25px max(8vw, calc((100vw - 1050px) / 2)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
 .status-label { color: var(--accent); font-size: 12px; font-weight: 650; }
 .status-dot { display: inline-block; vertical-align: 1px; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--accent); }
@@ -66,6 +83,9 @@ h2 { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.15; margin: 0; }
 .people-updates p:not(.eyebrow) { color: var(--muted); max-width: 420px; font-size: 14px; line-height: 1.65; }
 .people-updates .text-links { margin-top: 20px; }
 .people-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin: 16px 0 0; padding: 0; list-style: none; font-size: 14px; }
+.people-list li { display: flex; flex-direction: column; gap: 4px; padding: 10px 0; border-top: 1px solid var(--line); }
+.people-list strong { font-weight: 650; }
+.people-list span { color: var(--muted); font-size: 12px; line-height: 1.5; }
 .closing-cta { padding: 58px max(8vw, calc((100vw - 1050px) / 2)); background: var(--soft-blue); border-top: 1px solid var(--line); }
 .closing-cta h2 { font-size: clamp(30px, 3.5vw, 44px); margin-bottom: 24px; }
 .button-light { background: transparent; color: var(--accent); }
@@ -79,16 +99,17 @@ footer > a:last-child { color: var(--accent); }
   nav { gap: 17px; }
   .hero { min-height: 390px; padding: 72px 8vw 20px; }
   .section, .feature-section { padding: 58px 8vw; grid-template-columns: 1fr; gap: 24px; }
+  .render-section { padding: 52px 8vw; grid-template-columns: 1fr; gap: 18px; }
   .diagram-section { padding: 58px 8vw; grid-template-columns: 1fr; gap: 20px; }
+  .planning-section { padding: 52px 8vw; }
   .status-band { padding: 22px 8vw; grid-template-columns: 1fr; gap: 10px; }
   .people-updates { padding: 58px 8vw; }
   .closing-cta { padding: 52px 8vw; }
 }
 @media (max-width: 560px) {
-  .topbar { min-height: 64px; }
+  .topbar { min-height: 64px; align-items: flex-start; flex-direction: column; gap: 8px; padding: 10px 6vw; }
   .brand { font-size: 12px; }
-  nav { gap: 12px; font-size: 11px; }
-  nav a:nth-child(3) { display: none; }
+  nav { width: 100%; flex-wrap: wrap; gap: 10px 16px; font-size: 11px; }
   .hero { min-height: 360px; padding-top: 62px; }
   h1 { font-size: clamp(36px, 10vw, 48px); }
   .hero-lede { font-size: 15px; }

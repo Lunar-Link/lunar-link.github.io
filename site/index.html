@@ -20,6 +20,8 @@
         <a href="#features">Features</a>
         <a href="#diagram">Diagram</a>
         <a href="#people">People</a>
+        <a href="#schedule">Fall schedule</a>
+        <a href="#parts">Parts</a>
         <a href="#updates">Updates</a>
       </nav>
     </header>
@@ -50,6 +52,18 @@
             <a href="https://github.com/Lunar-Link/mesh-network/blob/main/SPEC.md">Read the technical specification <span aria-hidden="true">↗</span></a>
           </div>
         </div>
+      </section>
+
+      <section class="render-section" aria-labelledby="render-title">
+        <div class="render-copy">
+          <p class="eyebrow">Prototype hardware</p>
+          <h2 id="render-title">Node concept renders</h2>
+          <p>Two concepts for the lunar surface node enclosure and antenna mast.</p>
+        </div>
+        <figure class="render-figure">
+          <img src="assets/lunar-link-node-render.png" alt="Two rendered Lunar Link surface node concepts. One is a short enclosure and the other is a taller enclosure with a long antenna mast.">
+          <figcaption>Current enclosure concepts.</figcaption>
+        </figure>
       </section>
 
       <section class="section feature-section" id="features">
@@ -97,6 +111,74 @@
         </figure>
       </section>
 
+      <section class="planning-section" id="schedule">
+        <p class="eyebrow">04 — Fall schedule</p>
+        <h2>Fall project schedule</h2>
+        <div class="table-wrap" role="region" aria-label="Fall project schedule table" tabindex="0">
+          <table class="planning-table">
+            <thead>
+              <tr><th scope="col">Week</th><th scope="col">Work</th><th scope="col">Status / deliverable</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Week 4</th>
+                <td>Initial project definition and planning scope, pick finalized parts, and the RF trade study of 433 MHz, 915 MHz, 2.4 GHz, and 5.8 GHz.</td>
+                <td>Done</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 5</th>
+                <td>Radio license earned. Protocol library, simulator, board firmware, and browser interface written. Lunar propagation study done. Order the LR1121 evaluation board, Nucleo boards, 18650 cells, and BMS.</td>
+                <td>Done. Non-power hardware ordered.</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 6</th>
+                <td>Get two boards communicating, run the interface over USB against a board, and measure airtime.</td>
+                <td>Two boards talking and the interface showing a live node.</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 7</th>
+                <td>Gain, range, and power testing, LR1121 sensitivity, power budget v1, and the presentation.</td>
+                <td>Power budget v1 and range data.</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 8</th>
+                <td>Four nodes running on dev boards, schematic v1 with a bill of materials, and a design review.</td>
+                <td>Four nodes routing and the schematic reviewed.</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 9</th>
+                <td>Finish firmware features and rehearse the demonstration (short week, Thanksgiving).</td>
+                <td>Demonstration runs end to end.</td>
+              </tr>
+              <tr>
+                <th scope="row">Week 10</th>
+                <td>Fall demonstration of discovery, multi-hop, rerouting, outage, and recovery, with the final requirements list and the schematic ready for Winter Quarter.</td>
+                <td>Demonstration</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="planning-section parts-section" id="parts">
+        <p class="eyebrow">05 — Parts</p>
+        <h2>Development and final hardware</h2>
+        <div class="table-wrap" role="region" aria-label="Selected parts by subsystem" tabindex="0">
+          <table class="planning-table parts-table">
+            <thead>
+              <tr><th scope="col">Subsystem</th><th scope="col">Development (Fall)</th><th scope="col">Final (custom PCB, Winter)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Microcontroller</th><td>STM32 Nucleo-L4</td><td>Ultra-low-power STM32 (U0 is the leading candidate)</td></tr>
+              <tr><th scope="row">Radio</th><td>REYAX RYLR999 LoRa, 915 MHz</td><td>Semtech LR1121 LoRa, 433 MHz, +22 dBm (plus S band link)</td></tr>
+              <tr><th scope="row">Antenna</th><td>Vertical half-wave dipole, omnidirectional</td><td>Same, on a telescoping mast (plus helix or patch for sat comms)</td></tr>
+              <tr><th scope="row">Power</th><td>18650 Li-ion, BMS, fuel gauge</td><td>Plus solar panels, MPPT charger, battery heater</td></tr>
+              <tr><th scope="row">Enclosure</th><td>Sealed box</td><td>Aluminum shell, multilayer insulation, radiator face</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="status-band" aria-label="Project status">
         <div class="status-label"><span class="status-dot"></span> Project status</div>
         <p>The protocol layers and host simulator are implemented. Firmware builds for the target board, but the radio drivers have not yet been tested on physical hardware.</p>
@@ -105,19 +187,19 @@
 
       <section class="section people-updates">
         <div class="people-panel" id="people">
-          <p class="eyebrow">04 — People</p>
+          <p class="eyebrow">06 — People</p>
           <h2>Project team</h2>
           <ul class="people-list">
-            <li>Michael Krumland-Dunning</li>
-            <li>Megan Fu</li>
-            <li>Noah Nichols</li>
-            <li>Jacob Ismael</li>
-            <li>Evan Tantuwaya</li>
-            <li>Edwin Duran</li>
+            <li><strong>Michael Krumland-Dunning</strong><span>RF systems lead, Lunar Simulations</span></li>
+            <li><strong>Megan Fu</strong><span>Team Lead, PCB Design lead, Verification</span></li>
+            <li><strong>Evan Tantuwaya</strong><span>Device and Power Testing Lead</span></li>
+            <li><strong>Edwin Duran</strong><span>Routing/Mesh Algorithms Lead</span></li>
+            <li><strong>Noah Nichols</strong><span>Network simulations Lead</span></li>
+            <li><strong>Jacob Ismael</strong><span>Firmware/Interface Implementation Lead</span></li>
           </ul>
         </div>
         <div class="updates-panel" id="updates">
-          <p class="eyebrow">05 — Latest update · 02 Nov 2026</p>
+          <p class="eyebrow">07 — Latest update · 02 Nov 2026</p>
           <h2>LR1121 radio driver</h2>
           <p>Added an LR1121 driver with channel sensing and a fake-chip test. Hardware bring-up is still ahead.</p>
           <a class="text-links" href="https://github.com/Lunar-Link/mesh-network/commits/main">Follow project updates <span aria-hidden="true">↗</span></a>
