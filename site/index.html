@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f7fb">
+    <meta name="description" content="Lunar Link is a prototype mesh network for communication between lunar surface nodes.">
+    <title>Lunar Link</title>
+    <link rel="icon" type="image/png" href="assets/lunar-logo.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Lunar Link home">
+        <img class="brand-logo" src="assets/lunar-logo.png" alt="">
+        <span>Lunar Link</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#diagram">Diagram</a>
+        <a href="#people">People</a>
+        <a href="#updates">Updates</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Lunar Link · Capstone project</p>
+          <h1>A prototype mesh network<br>for lunar surface communications.</h1>
+          <p class="hero-lede">Four or more surface nodes that discover one another, route messages over multiple hops, and hold messages through outages.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/Lunar-Link/mesh-network">View project repository</a>
+            <a class="text-link" href="#about">Read the abstract</a>
+          </div>
+        </div>
+        <div class="hero-foot"><span>4+ SURFACE NODES</span><span>MULTI-HOP · STORE AND FORWARD</span></div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">01 — Abstract</p>
+          <h2>Project abstract</h2>
+        </div>
+        <div class="section-copy">
+          <p class="large-copy">Crews, rovers, and science stations on the Moon need to exchange messages without depending on an orbiting relay or a single base station. Lunar Link is a prototype decentralized mesh network of four or more identical surface nodes. Each node carries an ultra-low-power STM32 microcontroller, a multi-band LoRa radio with a 433 MHz surface link and an S-band relay link, and a solar-charged 18650 lithium-ion pack, inside an insulated and radiation-shielded enclosure with a battery heater. Nodes discover their neighbors automatically, route messages over multiple hops, reroute around failed nodes, and hold undelivered messages through an outage until a path returns.</p>
+          <div class="text-links">
+            <a href="https://github.com/Lunar-Link/mesh-network/blob/main/README.md">Read the README <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/Lunar-Link/mesh-network/blob/main/SPEC.md">Read the technical specification <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section feature-section" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">02 — Features</p>
+          <h2>What the network does</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Find nearby nodes</h3>
+            <p>Nodes discover neighbors and estimate link quality to build a picture of the network.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Route around failures</h3>
+            <p>Multi-hop routes adapt when a node or radio link becomes unavailable and an alternate path exists.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>Hold messages through outages</h3>
+            <p>Messages can wait for a route to return, then forward automatically with delivery receipts.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">04</span>
+            <h3>Keep the core portable</h3>
+            <p>A radio-agnostic C11 library separates mesh behavior from board and radio drivers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="diagram-section" id="diagram">
+        <div class="diagram-copy">
+          <p class="eyebrow">03 — System diagram</p>
+          <h2>Block diagram</h2>
+          <p>The diagram shows the power, processor, radio, and interface blocks in a Lunar Link node.</p>
+          <div class="text-links">
+            <a href="assets/lunar-link-block-diagram.drawio" download>Download editable Draw.io file</a>
+            <a href="assets/lunar-link-block-diagram.png" target="_blank" rel="noopener noreferrer">Open full-size diagram</a>
+          </div>
+        </div>
+        <figure class="diagram-figure">
+          <img src="assets/lunar-link-block-diagram.png" alt="Lunar Link node block diagram showing the power unit, STM32 processor and sensors, LoRa radio, antennas, and local interface.">
+          <figcaption>Lunar Link node hardware block diagram.</figcaption>
+        </figure>
+      </section>
+
+      <section class="status-band" aria-label="Project status">
+        <div class="status-label"><span class="status-dot"></span> Project status</div>
+        <p>The protocol layers and host simulator are implemented. Firmware builds for the target board, but the radio drivers have not yet been tested on physical hardware.</p>
+        <a href="https://github.com/Lunar-Link/mesh-network/blob/main/README.md#build-and-test">Build notes <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="section people-updates">
+        <div class="people-panel" id="people">
+          <p class="eyebrow">04 — People</p>
+          <h2>Project team</h2>
+          <ul class="people-list">
+            <li>Michael Krumland-Dunning</li>
+            <li>Megan Fu</li>
+            <li>Noah Nichols</li>
+            <li>Jacob Ismael</li>
+            <li>Evan Tantuwaya</li>
+            <li>Edwin Duran</li>
+          </ul>
+        </div>
+        <div class="updates-panel" id="updates">
+          <p class="eyebrow">05 — Latest update · 02 Nov 2026</p>
+          <h2>LR1121 radio driver</h2>
+          <p>Added an LR1121 driver with channel sensing and a fake-chip test. Hardware bring-up is still ahead.</p>
+          <a class="text-links" href="https://github.com/Lunar-Link/mesh-network/commits/main">Follow project updates <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="closing-cta">
+        <p class="eyebrow">Project resources</p>
+        <h2>Code, specification,<br>and build instructions.</h2>
+        <a class="button button-light" href="https://github.com/Lunar-Link/mesh-network">Open the project repository</a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top"><img class="brand-logo" src="assets/lunar-logo.png" alt=""><span>Lunar Link</span></a>
+      <p>Open source · Built by Lunar Link</p>
+      <a href="assets/lunar.pdf" download>Logo PDF</a>
+      <a href="https://github.com/Lunar-Link/mesh-network">GitHub <span aria-hidden="true">↗</span></a>
+    </footer>
+  </body>
+</html>
